@@ -1,0 +1,16 @@
+function outL=fun_MLH_4q(t,n)
+Rho = fun_rho(t);
+load('proj4q_pre_cal.mat'); %projectors are named: 'proj4q'
+N=sum(n(1:6));
+if size(n,2)~=256
+    error('Error in input counts, not 256!');
+end
+
+dim_p = size(proj4q, 1);
+tmp=zeros(size(n));
+
+for i=1:dim_p
+    tmp(i) = proj4q(i,:)*Rho*(proj4q(i,:)');
+end
+
+outL=sum((N*tmp-n).^2/2./(N*tmp));

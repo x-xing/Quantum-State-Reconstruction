@@ -1,0 +1,4 @@
+function rhoMatrix=fun_rho_4q(t)
+tMatrix=zeros(16,16);
+
+tMatrix = 

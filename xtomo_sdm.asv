@@ -1,0 +1,18 @@
+% load('F:\xing\Dropbox\Data\Dylan''s code\counts.mat');
+% load('F:\xing\Dropbox\Data\Dylan''s code\M.mat');
+% load('F:\xing\Dropbox\Data\Dylan''s code\rho.mat');
+% 
+% rho_li = zeros(4,4);
+% for nu=1:1:36
+%     rho_li = rho_li + reshape(M(nu,:,:),4,4)*n(nu);
+% end
+% rho_li = rho_li/sum(n(1:4));
+
+proj36=M;
+
+B = B_matrix(proj36);
+B_inv = inv(B);
+
+for mu=1:1:16
+    M(mu,:,:) = M_matrix(mu, projectors, B, B_inv);
+end
